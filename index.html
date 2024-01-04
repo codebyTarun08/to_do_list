@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+    <title>Taskpilot</title>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+        </header>
+        <nav>
+            <div class="navbar">
+                <ul class="navlist">
+                    <li><select name="tasks" id="tasks">
+                            <option value="first">task1</option>
+                            <option value="second">task2</option>
+                            <option value="third">task3</option>
+                        </select></li>
+                    <a href="#">
+                        <li class="n-item">Completed</li>
+                    </a>
+                    <a href="#">
+                        <li class="n-item">Recent</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <div class="main">
+            <h1>Tasks</h1>
+            <p>Make your Task for future.</p>
+            <div class="task">
+                <form>
+                    <div class="heading">
+                        <label for="heading">Task heading</label>
+                        <input type="text" id="heading" placeholder="Add task Heading">
+                    </div>
+                    <div class="descrip">
+                        <label for="description">Task Description</label>
+                        <input type="text" id="description" placeholder="Add task Description">
+                    </div>
+                    <div class="button">
+                        <button id="submit">Submit</button>
+                        <button id="deletebtn"> Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="info">
+            <h1>Sheduled Tasks</h1>
+        </div>
+        <div id="todo">
+           
+        </div>
+    </div>
+</body>
+<script>
+    submit.addEventListener("click", (e) => {
+        e.preventDefault()
+        let titlec = heading.value
+        let descc = description.value
+        localStorage.setItem("todo", JSON.stringify([titlec, descc]))
+        console.log(e)
+        todo.innerHTML=`
+        <h2>${titlec} </h2>
+        <hr>
+        <p>${descc} </p>
+        `
+        title.value=""
+        desc.value=""
+    })
+    deletebtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        localStorage.removeItem("todo")
+        todo.innerHTML=""
+    })
+</script>
+</html>
